@@ -1,15 +1,29 @@
-function Card({ marca, modelo, ano, preco, cor }) {
+import { useState } from 'react'
+
+function Card({ marca, modelo, ano, categoria, preco, foto }) {
+  const [erro, setErro] = useState(false)
+
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition">
-      <div className="h-40 bg-gray-200 flex items-center justify-center text-6xl">
-        🚗
-      </div>
+      {erro ? (
+        <div className="h-44 bg-gray-200 flex items-center justify-center text-sm text-gray-500">
+          Sem imagem
+        </div>
+      ) : (
+        <img
+          src={foto}
+          alt={`${marca} ${modelo}`}
+          loading="lazy"
+          onError={() => setErro(true)}
+          className="h-44 w-full object-cover"
+        />
+      )}
 
       <div className="p-4">
         <p className="text-xs uppercase text-gray-500">{marca}</p>
         <h3 className="text-lg font-bold text-gray-900">{modelo}</h3>
         <p className="text-sm text-gray-600">
-          {ano} • {cor}
+          {ano} • {categoria}
         </p>
 
         <div className="flex items-center justify-between mt-4">
