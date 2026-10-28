@@ -1,13 +1,65 @@
 import { useState } from 'react'
 import Card from '../components/Card'
 
+// monta o link da foto a partir do nome do arquivo na Wikimedia Commons
+const foto = (arquivo) =>
+  `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(arquivo)}?width=800`
+
 const carros = [
-  { id: 1, marca: 'BMW', modelo: 'M3 Competition', ano: 2023, cor: 'Preto', preco: 1200 },
-  { id: 2, marca: 'Porsche', modelo: '911 Carrera', ano: 2022, cor: 'Cinza', preco: 2500 },
-  { id: 3, marca: 'Mercedes-Benz', modelo: 'C63 AMG', ano: 2023, cor: 'Branco', preco: 1500 },
-  { id: 4, marca: 'Audi', modelo: 'RS6 Avant', ano: 2022, cor: 'Azul', preco: 1400 },
-  { id: 5, marca: 'Ferrari', modelo: 'Roma', ano: 2021, cor: 'Vermelho', preco: 4500 },
-  { id: 6, marca: 'Lamborghini', modelo: 'Huracán', ano: 2022, cor: 'Amarelo', preco: 5000 },
+  {
+    id: 1,
+    marca: 'BMW',
+    modelo: 'M3 Competition',
+    ano: 2022,
+    categoria: 'Sedã esportivo',
+    preco: 1200,
+    foto: foto('BMW M3 Competition Berline G80 (51233723653).jpg'),
+  },
+  {
+    id: 2,
+    marca: 'Porsche',
+    modelo: '911 Carrera',
+    ano: 2022,
+    categoria: 'Cupê',
+    preco: 2500,
+    foto: foto('Porsche 911 Carrera coupé (type 992).jpg'),
+  },
+  {
+    id: 3,
+    marca: 'Mercedes-Benz',
+    modelo: 'C63 AMG Cabriolet',
+    ano: 2019,
+    categoria: 'Conversível',
+    preco: 1500,
+    foto: foto('Mercedes-AMG C 63 (A205) IMG 2982.jpg'),
+  },
+  {
+    id: 4,
+    marca: 'Audi',
+    modelo: 'RS6 Avant',
+    ano: 2022,
+    categoria: 'Perua esportiva',
+    preco: 1400,
+    foto: foto('Audi RS 6 Avant C8 Daytona Grey Pearl (1).jpg'),
+  },
+  {
+    id: 5,
+    marca: 'Ferrari',
+    modelo: 'Roma',
+    ano: 2021,
+    categoria: 'Cupê GT',
+    preco: 4500,
+    foto: foto('Red Ferrari Roma.jpg'),
+  },
+  {
+    id: 6,
+    marca: 'Lamborghini',
+    modelo: 'Huracán',
+    ano: 2018,
+    categoria: 'Supercarro',
+    preco: 5000,
+    foto: foto("Lamborghini Huracán - Mondial de l'Automobile de Paris 2018 - 001.jpg"),
+  },
 ]
 
 function Carros() {
